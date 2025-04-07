@@ -6,7 +6,7 @@ const Navbar = ({  }) => {
     return (
         <div className="navbar">
         <NavLink to ="/" className="logo">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjOEoXHSRQ5lkPLByMaG3CQzrr7ZpIg33yoQ&s" className="logo" alt="FSU logo" />
+            <img src="https://media.istockphoto.com/id/1184567639/vector/ecology-sphere-logo-formed-by-twisted-green-leaves.jpg?s=612x612&w=0&k=20&c=RuhMuEHwiUk50BonfU2yDBpo3IOBa7nywRdY069-TCU=" className="logo" alt="Green logo" />
         </NavLink>
         <ul style={{ listStyleType: 'none', display: 'flex' }}>
 
