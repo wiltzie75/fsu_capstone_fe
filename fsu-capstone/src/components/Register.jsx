@@ -3,6 +3,7 @@ import { SlLock } from "react-icons/sl";
 import { MdOutlineMail } from "react-icons/md";
 import { GoPerson } from "react-icons/go";
 
+
 const Register = ({ setToken }) => {
     const [firstname, setFirstname] = useState("")
     const [lastname, setLastname] = useState("")
@@ -63,4 +64,5 @@ const Register = ({ setToken }) => {
         </div>
      );
 }
+ 
 export default Register;
