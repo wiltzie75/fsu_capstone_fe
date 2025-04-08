@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { SlLock } from "react-icons/sl";
 
-
 const Register = ({ setToken }) => {
     const [firstname, setFirstname] = useState("")
     const [lastname, setLastname] = useState("")

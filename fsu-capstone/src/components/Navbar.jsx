@@ -52,3 +52,4 @@ const Navbar = ({ isLoggedIn, handleLoginLogout }) => {
 }
 
 export default Navbar;
+
