@@ -4,7 +4,7 @@ import { Link, Navigate, NavLink } from 'react-router-dom';
 const Navbar = ({ isLoggedIn, handleLoginLogout }) => {
 
     return (
-        <div className="navbar">
+        <div className="navbar" role="banner">
         <NavLink to ="/" className="logo">
             <img src="https://media.istockphoto.com/id/1184567639/vector/ecology-sphere-logo-formed-by-twisted-green-leaves.jpg?s=612x612&w=0&k=20&c=RuhMuEHwiUk50BonfU2yDBpo3IOBa7nywRdY069-TCU=" className="logo" alt="LU logo" />
         </NavLink>
@@ -28,25 +28,24 @@ const Navbar = ({ isLoggedIn, handleLoginLogout }) => {
 
         <div className="navbar-right">
           {!isLoggedIn ? (
-            <button style={{ margin: '0 10px' }}>
+            <li style={{ margin: '0 10px' }}>
               <Link to="/register">Register</Link>
-            </button>
+            </li>
           ) : (
-            <button style={{ margin: '0 10px' }}>
+            <li style={{ margin: '0 10px' }}>
               <Link to="/account">Account</Link>
-            </button>
+            </li>
           )}
           {!isLoggedIn ? (
-            <button style={{ margin: '0 10px' }}>
+            <li style={{ margin: '0 10px' }}>
               <Link to="/login">Login</Link>
-            </button>
+            </li>
           ) : (
-            <button style={{ margin: '0 10px' }}>
+            <li style={{ margin: '0 10px' }}>
               <Link to="/" onClick={() => handleLoginLogout(false)}>Logout</Link>
-            </button>
+            </li>
           )}
         </div>
-
         </div>
     )
 }

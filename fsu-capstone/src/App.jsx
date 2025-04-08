@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { Routes, Route, Link } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Register from './components/register'
 
 function App() {
   const [token, setToken] = useState(null)
