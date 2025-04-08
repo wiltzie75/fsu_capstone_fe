@@ -1,3 +1,9 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(green, white);
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -20,14 +26,6 @@ a {
 }
 a:hover {
   color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -65,4 +63,47 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.navbar {
+  display: flex;
+  width: 100%;
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: rgb(61, 61, 61);
+  padding: 15px;
+  float: left
+}
+
+.navbar li {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  align-items: end;
+  justify-content: center;
+}
+
+.navbar a{
+  color: antiquewhite;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 18px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: end;
+  float: right;
+}
+
+.navbar-title {
+  font-style: italic;
 }

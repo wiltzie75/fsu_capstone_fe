@@ -1,6 +1,5 @@
+
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
@@ -9,19 +8,22 @@ import Faculty from "./components/Faculty";
 import DepartmentDetailPage from "./components/DepartmentDetailPage";
 import FacultyDetailPage from "./components/FacultyDetailPage";
 import AdminPage from "./components/AdminPage";
+import Navbar from './components/Navbar'
+import Register from './components/register'
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [token, setToken] = useState(null)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  const handleLoginLogout = (value) => {
+    setIsLoggedIn(value);
+  }
 
   return (
     <>
+    <Navbar isLoggedIn={isLoggedIn}/>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        
       </div>
       <Router>
         <Routes>
@@ -33,7 +35,6 @@ function App() {
           <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </Router>
-    </>
   );
 }
 
