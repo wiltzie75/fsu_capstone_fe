@@ -1,3 +1,9 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(green, white);
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -61,8 +67,12 @@ button:focus-visible {
 
 .navbar {
   display: flex;
+  position: absolute;
+  width: 100%;
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: rgb(61, 61, 61);
   padding: 15px;
+
   /* float: left */
 }
 
@@ -86,6 +96,8 @@ button:focus-visible {
   text-decoration: none;
   padding: 10px;
   font-size: 18px;
+  margin-right: 30px;
+  margin-left: 30px;
 }
 
 .navbar-right {
