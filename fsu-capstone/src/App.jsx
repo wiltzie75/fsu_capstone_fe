@@ -18,9 +18,6 @@ function App() {
       <div>
         
       </div>
-      <Routes>
-        <Route path='/'/>
-      </Routes>
     </>
   )
 }
