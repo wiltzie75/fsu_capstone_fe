@@ -4,11 +4,16 @@ import { Routes, Route, Link } from 'react-router-dom'
 import Navbar from './components/Navbar'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [token, setToken] = useState(null)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  const handleLoginLogout = (value) => {
+    setIsLoggedIn(value);
+  }
 
   return (
     <>
-    <Navbar />
+    <Navbar isLoggedIn={isLoggedIn}/>
       <div>
         
       </div>
