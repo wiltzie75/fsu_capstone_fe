@@ -19,7 +19,7 @@ function App() {
         
       </div>
       <Routes>
-        <Route />
+        <Route path='/'/>
       </Routes>
     </>
   )

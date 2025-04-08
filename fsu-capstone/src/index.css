@@ -67,13 +67,11 @@ button:focus-visible {
 
 .navbar {
   display: flex;
-  position: absolute;
   width: 100%;
   box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: rgb(61, 61, 61);
   padding: 15px;
-
-  /* float: left */
+  float: left
 }
 
 .navbar li {
@@ -96,8 +94,8 @@ button:focus-visible {
   text-decoration: none;
   padding: 10px;
   font-size: 18px;
-  margin-right: 30px;
-  margin-left: 30px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .navbar-right {
