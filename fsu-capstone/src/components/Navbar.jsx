@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, Navigate, NavLink } from 'react-router-dom';
 
-const Navbar = ({  }) => {
+const Navbar = ({ isLoggedIn, handleLoginLogout }) => {
 
     return (
         <div className="navbar">
@@ -18,22 +18,33 @@ const Navbar = ({  }) => {
         </li>
         
           <li style={{ margin: '0 10px' }}>
-            <Link to="/departments" >Departments</Link>
+            <Link to="/departments">Departments</Link>
           </li>
         
           <li style={{ margin: '0 10px' }}>
-            <Link to="/faculty" >Faculty</Link>
+            <Link to="/faculty">Faculty</Link>
           </li>
         </ul>
 
         <div className="navbar-right">
-          <button style={{ margin: '0 10px' }} className="signup">
-            <Link to="/signup" >Sign Up</Link>
-          </button>
-
-          <button style={{ margin: '0 10px' }} className="login">
-            <Link to="/login" >Login</Link>
-          </button>
+          {!isLoggedIn ? (
+            <button style={{ margin: '0 10px' }}>
+              <Link to="/register">Register</Link>
+            </button>
+          ) : (
+            <button style={{ margin: '0 10px' }}>
+              <Link to="/account">Account</Link>
+            </button>
+          )}
+          {!isLoggedIn ? (
+            <button style={{ margin: '0 10px' }}>
+              <Link to="/login">Login</Link>
+            </button>
+          ) : (
+            <button style={{ margin: '0 10px' }}>
+              <Link to="/" onClick={() => handleLoginLogout(false)}>Logout</Link>
+            </button>
+          )}
         </div>
 
         </div>
