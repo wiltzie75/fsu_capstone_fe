@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { SlLock } from "react-icons/sl";
+import { MdOutlineMail } from "react-icons/md";
+import { GoPerson } from "react-icons/go";
+
 
 const Register = ({ setToken }) => {
     const [firstname, setFirstname] = useState("")
@@ -32,27 +35,27 @@ const Register = ({ setToken }) => {
     }
 
     return ( 
-        <div className="container">
-            <div className="signup-header">
-            <div className="text">Register</div>
+        <div className="register-container">
+            <div className="register-header">
+            <div className="register-text">Register</div>
             <div className="underline"></div>
             </div>
             <div className="inputs">
                 <div className="input">
-                    <img src="" alt="" />
-                    <input type="text" />
+                    <img src={<GoPerson />} alt="Name Icon" />
+                    <input type="text" placeholder="First Name"/>
                 </div>
                 <div className="input">
-                    <img src="" alt="" />
-                    <input type="text" />
+                    <img src={<GoPerson />} alt="Name Icon" />
+                    <input type="text" placeholder="Last Name"/>
                 </div>
                 <div className="input">
-                    <img src="" alt="" />
-                    <input type="email" />
+                    <img src={<MdOutlineMail />} alt="Email Icon" />
+                    <input type="email" placeholder="Email"/>
                 </div>
                 <div className="input">
                     <img src={<SlLock />} alt="Password Icon" />
-                    <input type="password" />
+                    <input type="password" placeholder="Password"/>
                 </div>
             </div>
             <div className="submit-container">

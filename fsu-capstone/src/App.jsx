@@ -20,11 +20,7 @@ function App() {
   }
 
   return (
-    <>
     <Navbar isLoggedIn={isLoggedIn}/>
-      <div>
-        
-      </div>
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
