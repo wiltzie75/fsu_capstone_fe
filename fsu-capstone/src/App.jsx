@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import "./App.css";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Router, Route, Link } from "react-router-dom";
 // import Home from "./components/Home";
 // import Departments from "./components/Departments";
 // import Faculty from "./components/Faculty";
