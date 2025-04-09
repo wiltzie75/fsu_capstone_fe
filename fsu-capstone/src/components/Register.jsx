@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { SlLock } from "react-icons/sl";
 
 const Register = ({ setToken }) => {
     const [firstname, setFirstname] = useState("")
@@ -32,27 +31,27 @@ const Register = ({ setToken }) => {
     }
 
     return ( 
-        <div className="container">
-            <div className="signup-header">
-            <div className="text">Register</div>
+        <div className="register-container">
+            <div className="register-header">
+            <div className="register-text">Register</div>
             <div className="underline"></div>
             </div>
             <div className="inputs">
                 <div className="input">
-                    <img src="" alt="" />
-                    <input type="text" />
+                    <img src="/assets/person.png" alt="Name Icon" />
+                    <input type="text" style={{ margin: '0 10px' }}placeholder="First Name"/>
                 </div>
                 <div className="input">
-                    <img src="" alt="" />
-                    <input type="text" />
+                    <img src="/assets/person.png" alt="Name Icon" />
+                    <input type="text" style={{ margin: '0 10px' }}placeholder="Last Name"/>
                 </div>
                 <div className="input">
-                    <img src="" alt="" />
-                    <input type="email" />
+                    <img src="/assets/email.png" alt="Email Icon" />
+                    <input type="email" placeholder="Email"/>
                 </div>
                 <div className="input">
-                    <img src={<SlLock />} alt="Password Icon" />
-                    <input type="password" />
+                    <img src="/assets/password.png" alt="Password Icon" />
+                    <input type="password" style={{ margin: '0 18px' }}placeholder="Password"/>
                 </div>
             </div>
             <div className="submit-container">
