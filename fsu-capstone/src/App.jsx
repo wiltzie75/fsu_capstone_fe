@@ -9,7 +9,7 @@ import { Routes, Router, Route, Link } from "react-router-dom";
 // import FacultyDetailPage from "./components/FacultyDetailPage";
 // import AdminPage from "./components/AdminPage";
 import Navbar from './components/Navbar'
-import Register from './components/register'
+import Register from './components/Register'
 
 function App() {
   const [token, setToken] = useState(null)
@@ -21,16 +21,18 @@ function App() {
 
   return (
     <>
-        <Navbar isLoggedIn={isLoggedIn}/>
-        <Routes>
-          <Route path="/" />
-          {/* <Route path="/departments" element={<Departments />} /> */}
-          {/* <Route path="/faculty" element={<Faculty />} /> */}
-          {/* <Route path="/department/:id" element={<DepartmentDetailPage />} /> */}
-          {/* <Route path="/faculty/:id" element={<FacultyDetailPage />} /> */}
-          {/* <Route path="/admin" element={<AdminPage />} /> */}
-        </Routes>
-        </>
+    <Navbar isLoggedIn={isLoggedIn}/>
+      <Routes>
+        <Route path="/" />
+        <Route path="/register" element={<Register/>} />
+        {/* <Route path="/" element={<Home />} /> */}
+        {/* <Route path="/departments" element={<Departments />} /> */}
+        {/* <Route path="/faculty" element={<Faculty />} /> */}
+        {/* <Route path="/department/:id" element={<DepartmentDetailPage />} /> */}
+        {/* <Route path="/faculty/:id" element={<FacultyDetailPage />} /> */}
+        {/* <Route path="/admin" element={<AdminPage />} /> */}
+      </Routes>
+    </>
   );
 }
 

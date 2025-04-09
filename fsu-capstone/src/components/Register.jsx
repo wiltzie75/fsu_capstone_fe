@@ -1,8 +1,4 @@
 import { useState } from "react";
-import { SlLock } from "react-icons/sl";
-import { MdOutlineMail } from "react-icons/md";
-import { GoPerson } from "react-icons/go";
-
 
 const Register = ({ setToken }) => {
     const [firstname, setFirstname] = useState("")
@@ -42,20 +38,20 @@ const Register = ({ setToken }) => {
             </div>
             <div className="inputs">
                 <div className="input">
-                    <img src={<GoPerson />} alt="Name Icon" />
-                    <input type="text" placeholder="First Name"/>
+                    <img src="/assets/person.png" alt="Name Icon" />
+                    <input type="text" style={{ margin: '0 10px' }}placeholder="First Name"/>
                 </div>
                 <div className="input">
-                    <img src={<GoPerson />} alt="Name Icon" />
-                    <input type="text" placeholder="Last Name"/>
+                    <img src="/assets/person.png" alt="Name Icon" />
+                    <input type="text" style={{ margin: '0 10px' }}placeholder="Last Name"/>
                 </div>
                 <div className="input">
-                    <img src={<MdOutlineMail />} alt="Email Icon" />
+                    <img src="/assets/email.png" alt="Email Icon" />
                     <input type="email" placeholder="Email"/>
                 </div>
                 <div className="input">
-                    <img src={<SlLock />} alt="Password Icon" />
-                    <input type="password" placeholder="Password"/>
+                    <img src="/assets/password.png" alt="Password Icon" />
+                    <input type="password" style={{ margin: '0 18px' }}placeholder="Password"/>
                 </div>
             </div>
             <div className="submit-container">
