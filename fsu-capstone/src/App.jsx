@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "./App.css"
+import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
-// import Home from "./components/Home";
+import Home from "./components/Home";
 // import Departments from "./components/Departments";
 // import Faculty from "./components/Faculty";
 // import DepartmentDetailPage from "./components/DepartmentDetailPage";
@@ -23,9 +23,8 @@ function App() {
     <>
     <Navbar isLoggedIn={isLoggedIn}/>
       <Routes>
-        <Route path="/" />
+        <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register/>} />
-        {/* <Route path="/" element={<Home />} /> */}
         {/* <Route path="/departments" element={<Departments />} /> */}
         {/* <Route path="/faculty" element={<Faculty />} /> */}
         {/* <Route path="/department/:id" element={<DepartmentDetailPage />} /> */}
