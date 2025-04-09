@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
@@ -8,23 +7,21 @@ import Faculty from "./components/Faculty";
 import DepartmentDetailPage from "./components/DepartmentDetailPage";
 import FacultyDetailPage from "./components/FacultyDetailPage";
 import AdminPage from "./components/AdminPage";
-import Navbar from './components/Navbar'
-import Register from './components/register'
+import Navbar from "./components/Navbar";
+import Register from "./components/register";
 
 function App() {
-  const [token, setToken] = useState(null)
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [token, setToken] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLoginLogout = (value) => {
     setIsLoggedIn(value);
-  }
+  };
 
   return (
     <>
-    <Navbar isLoggedIn={isLoggedIn}/>
-      <div>
-        
-      </div>
+      <Navbar isLoggedIn={isLoggedIn} />
+      <div></div>
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -35,6 +32,8 @@ function App() {
           <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </Router>
+      );
+    </>
   );
 }
 
