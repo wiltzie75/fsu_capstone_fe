@@ -46,12 +46,12 @@ const Register = ({ setToken }) => {
                     <input type="text" style={{ margin: '0 10px' }}placeholder="Last Name"/>
                 </div>
                 <div className="input">
-                    <img src="/assets/email.png" alt="Email Icon" />
-                    <input type="email" placeholder="Email"/>
+                    <img src="/assets/email2.png" alt="Email Icon" />
+                    <input type="email" style={{ margin: '0 10px' }}placeholder="Email"/>
                 </div>
                 <div className="input">
                     <img src="/assets/password.png" alt="Password Icon" />
-                    <input type="password" style={{ margin: '0 18px' }}placeholder="Password"/>
+                    <input type="password" style={{ margin: '0 15px' }}placeholder="Password"/>
                 </div>
             </div>
             <div className="submit-container">
