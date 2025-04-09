@@ -118,6 +118,7 @@ button:focus-visible {
   padding-bottom: 20px;
   width: 100%;
   max-width: 600px; /* Max width for large screens */
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .register-header {
@@ -173,7 +174,7 @@ button:focus-visible {
   background: transparent;
   border: none;
   outline: none;
-  color: antiquewhitegit;
+  color: antiquewhite;
   font-size: 18px; /* Slightly reduced font size for better fit */
 }
 
