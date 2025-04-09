@@ -111,6 +111,123 @@ button:focus-visible {
 .register-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin: auto;
+  margin-top: 5vh; /* Use viewport height for better centering on smaller screens */
+  background-color: #213547;
+  padding-bottom: 20px;
+  width: 100%;
+  max-width: 600px; /* Max width for large screens */
+}
+
+.register-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.register-text {
+  color: antiquewhite;
+  font-size: 3rem; /* Adjust font size for better scalability */
+  font-weight: 700;
+}
+
+.underline {
+  width: 62px;
+  height: 6px;
+  background: green;
+  border-radius: 9px;
+}
+
+.inputs {
+  margin-top: 35px; /* Slightly reduced margin for better spacing */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%; /* Ensure it uses available width */
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%; /* Ensure input fills available space */
+  max-width: 480px; /* Max width for input fields */
+  height: 60px; /* Reduced height for a more compact input box */
+  background: gray;
+  border-radius: 6px;
+  padding: 0 15px;
+}
+
+.input img {
+  margin-right: 15px;
+  max-height: 30px; /* Ensures the image doesn't get too big */
+}
+
+.input input {
+  height: 40px; /* Adjusted to fit within the box */
+  width: 100%; /* Ensure input stretches within the container */
+  background: transparent;
+  border: none;
+  outline: none;
+  color: antiquewhitegit;
+  font-size: 18px; /* Slightly reduced font size for better fit */
+}
+
+.submit-container {
+  display: flex;
+  justify-content: center; /* Centering submit buttons */
+  gap: 20px;
+  margin: 40px auto;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 50px; /* Adjusted height for a more compact button */
+  color: white;
+  background-color: green;
+  border-radius: 50px;
+  font-size: 18px; /* Adjusted font size */
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center; /* Ensure the text is centered */
+}
+
+@media (max-width: 768px) {
+  .register-container {
+    margin-top: 10vh;
+    padding: 10px;
+  }
+
+  .register-text {
+    font-size: 2rem;
+  }
+
+  .inputs {
+    margin-top: 25px;
+  }
+
+  .input {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .submit {
+    width: 180px;
+    height: 45px;
+    font-size: 16px;
+  }
+}
+
+/* .register-container {
+  display: flex;
+  flex-direction: column;
   margin: auto;
   margin-top: 200px;
   background-color: #213547;
@@ -188,4 +305,4 @@ button:focus-visible {
   font-size: 19px;
   font-weight: 700;
   cursor: pointer;
-}
+} */

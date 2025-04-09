@@ -2,14 +2,14 @@
 import { useState } from "react";
 import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
-import Home from "./components/Home";
-import Departments from "./components/Departments";
-import Faculty from "./components/Faculty";
-import DepartmentDetailPage from "./components/DepartmentDetailPage";
-import FacultyDetailPage from "./components/FacultyDetailPage";
-import AdminPage from "./components/AdminPage";
+// import Home from "./components/Home";
+// import Departments from "./components/Departments";
+// import Faculty from "./components/Faculty";
+// import DepartmentDetailPage from "./components/DepartmentDetailPage";
+// import FacultyDetailPage from "./components/FacultyDetailPage";
+// import AdminPage from "./components/AdminPage";
 import Navbar from './components/Navbar'
-import Register from './components/register'
+import Register from './components/Register'
 
 function App() {
   const [token, setToken] = useState(null)
@@ -20,17 +20,19 @@ function App() {
   }
 
   return (
+    <>
     <Navbar isLoggedIn={isLoggedIn}/>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/departments" element={<Departments />} />
-          <Route path="/faculty" element={<Faculty />} />
-          <Route path="/department/:id" element={<DepartmentDetailPage />} />
-          <Route path="/faculty/:id" element={<FacultyDetailPage />} />
-          <Route path="/admin" element={<AdminPage />} />
-        </Routes>
-      </Router>
+      <Routes>
+        <Route path="/" />
+        <Route path="/register" element={<Register/>} />
+        {/* <Route path="/" element={<Home />} /> */}
+        {/* <Route path="/departments" element={<Departments />} /> */}
+        {/* <Route path="/faculty" element={<Faculty />} /> */}
+        {/* <Route path="/department/:id" element={<DepartmentDetailPage />} /> */}
+        {/* <Route path="/faculty/:id" element={<FacultyDetailPage />} /> */}
+        {/* <Route path="/admin" element={<AdminPage />} /> */}
+      </Routes>
+    </>
   );
 }
 

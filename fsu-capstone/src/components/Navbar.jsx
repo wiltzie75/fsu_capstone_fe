@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { Link, Navigate, NavLink } from 'react-router-dom';
-import Lincoln from "/assets/Lincoln.png"
 
 const Navbar = ({ isLoggedIn, handleLoginLogout }) => {
 
     return (
         <div className="navbar" role="banner">
         <NavLink to ="/" className="logo">
-            <img src="/assets/Lincoln.png" className="logo" alt="LU logo" />
+            <img src="/assets/lincoln.png" className="logo" alt="LU logo" />
         </NavLink>
         <div className="navbar-title">
         <h1>Lincoln University</h1>
