@@ -8,10 +8,9 @@ import Home from "./components/Home";
 // import FacultyDetailPage from "./components/FacultyDetailPage";
 // import AdminPage from "./components/AdminPage";
 import Navbar from "./components/Navbar";
-import Register from "./components/register";
+import Register from "./components/Register";
 import Login from "./components/Login";
 import Account from "./components/Account"
-import Register from "./components/Register";
 
 
 function App() {
