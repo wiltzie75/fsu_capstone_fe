@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-const API = "http://localhost:3000/api/"
+import { userLogin } from "../api";
 
 const Login = ({ token, setToken }) => {
   const navigate = useNavigate();
@@ -10,25 +10,11 @@ const Login = ({ token, setToken }) => {
 
   async function handleClick(e){
     e.preventDefault();
-    try {
-      const response = await fetch(`${API}auth/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({inputEmail, inputPassword})
-      });
-      console.log(response);
-      const result = await response.json();
-      localStorage.setItem("token", result.token);
-      setToken(result.token);
-      setInputEmail("");
-      setInputPassword("");
-      navigate("/user/me");
-
-    } catch (error) {
-        setError(error.message);
-    }
+    const token = await userLogin({
+      email: inputEmail,
+      password: inputPassword
+    })
+    localStorage.setItem("token", token)
   }
   // const logInUser = async (event) => {
   //   event.preventDefault();
