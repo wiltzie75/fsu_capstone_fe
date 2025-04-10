@@ -11,12 +11,17 @@ const Login = ({ token, setToken }) => {
   async function handleClick(e){
     e.preventDefault();
     try {
+      console.log({email: inputEmail,
+        password: inputPassword})
       const response = await fetch(`${API}auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({inputEmail, inputPassword})
+        body: JSON.stringify({
+          email: inputEmail,
+          password: inputPassword
+        })
       });
       console.log(response);
       const result = await response.json();
@@ -24,7 +29,7 @@ const Login = ({ token, setToken }) => {
       setToken(result.token);
       setInputEmail("");
       setInputPassword("");
-      navigate("/user/me");
+      // navigate("/user/me");
 
     } catch (error) {
         setError(error.message);
