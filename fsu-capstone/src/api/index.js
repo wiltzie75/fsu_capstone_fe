@@ -39,3 +39,18 @@ export const fetchFacultyById = async (id) => {
     console.error("Error fetching faculty", error);
   }
 };
+
+export async function fetchAccount(token) {
+  try {
+      const response = await fetch(`${API_URL}/users/`, {
+      headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`},
+      });
+          const json = await response.json();
+          return json;
+  } catch (error) {
+      console.error(error);
+  }
+}
+
