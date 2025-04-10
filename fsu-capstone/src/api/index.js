@@ -40,8 +40,23 @@ export const fetchFacultyById = async (id) => {
   }
 };
 
-export async function fetchAccount(token, id) {
-  console.log(token, id);
+//===================register function======================
+export const createAccount = async (data) => {
+  try {
+    const response = await fetch(`${API_URL}/user`, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
+    })
+    console.log("good")
+    const result = await response
+    console.log("createAccount result => ", result)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export async function fetchAccount(token) {
   try {
       const response = await fetch(`${API_URL}/users/${id}`, {
       headers: {
