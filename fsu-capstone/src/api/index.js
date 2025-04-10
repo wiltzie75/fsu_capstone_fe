@@ -40,6 +40,7 @@ export const fetchFacultyById = async (id) => {
   }
 };
 
+
 //===================register function======================
 export const createAccount = async (data) => {
   try {
@@ -55,3 +56,18 @@ export const createAccount = async (data) => {
     console.log(error)
   }
 }
+
+export async function fetchAccount(token) {
+  try {
+      const response = await fetch(`${API_URL}/users/`, {
+      headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`},
+      });
+          const json = await response.json();
+          return json;
+  } catch (error) {
+      console.error(error);
+  }
+}
+
