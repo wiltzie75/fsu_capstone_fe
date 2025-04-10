@@ -8,6 +8,9 @@ import Home from "./components/Home";
 // import FacultyDetailPage from "./components/FacultyDetailPage";
 // import AdminPage from "./components/AdminPage";
 import Navbar from "./components/Navbar";
+import Register from "./components/register";
+import Login from "./components/Login";
+import Account from "./components/Account"
 import Register from "./components/Register";
 
 
@@ -15,9 +18,9 @@ function App() {
   const [token, setToken] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleLoginLogout = (value) => {
-    setIsLoggedIn(value);
-  };
+  // const handleLoginLogout = (value) => {
+  //   setIsLoggedIn(value);
+  // };
 
   return (
     <>
@@ -30,6 +33,8 @@ function App() {
         {/* <Route path="/department/:id" element={<DepartmentDetailPage />} /> */}
         {/* <Route path="/faculty/:id" element={<FacultyDetailPage />} /> */}
         {/* <Route path="/admin" element={<AdminPage />} /> */}
+        <Route path="/login" element={<Login token={token} setToken={setToken}/>} />
+        <Route path="/user/:id" element={<Account token={token}/>} />
       </Routes>
     </>
   );
