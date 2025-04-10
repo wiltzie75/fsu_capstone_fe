@@ -3,7 +3,8 @@ const API_URL = "http://localhost:3000/api";
 export const fetchDepartments = async () => {
   try {
     const response = await fetch(`${API_URL}/departments`);
-    return response.data;
+    const result = response.json();
+    return result;
   } catch (error) {
     console.error("Error fetching departments", error);
   }

@@ -3,18 +3,18 @@ import { Link, Navigate, NavLink } from "react-router-dom";
 import { fetchDepartments } from "../api";
 
 const Home = () => {
-  const [departments, GetDepartments] = useState([]);
+  const [departments, setDepartments] = useState([]);
   const [facultys, GetFacultys] = useState([]);
   const [error, setError] = useState(null);
-
+  console.log(departments);
   useEffect(() => {
     async function getAllDepartments() {
       try {
         const APIResponse = await fetchDepartments();
         console.log(APIResponse);
-        GetDepartments(APIResponse);
+        setDepartments(APIResponse);
         if (APIResponse) {
-          GetDepartments(APIResponse);
+          setDepartments(APIResponse);
         } else {
           setError("Failed to fetch Department");
         }
