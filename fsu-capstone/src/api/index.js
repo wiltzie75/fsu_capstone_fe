@@ -48,8 +48,9 @@ export const createAccount = async (data) => {
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(data)
     })
-    console.log("createAccount response => ", response)
-    const result = response.json()
+    console.log("good")
+    const result = await response
+    console.log("createAccount result => ", result)
   } catch (error) {
     console.log(error)
   }
