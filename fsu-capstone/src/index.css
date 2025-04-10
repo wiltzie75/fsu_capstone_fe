@@ -156,7 +156,7 @@ button:focus-visible {
   width: 100%; /* Ensure input fills available space */
   max-width: 480px; /* Max width for input fields */
   height: 60px; /* Reduced height for a more compact input box */
-  background: gray;
+  background: rgb(66, 66, 66);
   border-radius: 6px;
   padding: 0 15px;
 }
