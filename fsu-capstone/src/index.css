@@ -156,7 +156,7 @@ button:focus-visible {
   width: 100%; /* Ensure input fills available space */
   max-width: 480px; /* Max width for input fields */
   height: 60px; /* Reduced height for a more compact input box */
-  background: gray;
+  background: rgb(66, 66, 66);
   border-radius: 6px;
   padding: 0 15px;
 }
@@ -226,15 +226,18 @@ button:focus-visible {
 
 .background-image {
   display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100vh;
   background-image: url("images/school.jpg");
   background-size: cover;
+  /* background-position: center; */
   box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5);
 }
 
-.home-content1 {
+.home-content {
   color: white;
-  z-index: 10;
-  position: relative;
+  font-size: 50px;
+  text-align: center;
 }

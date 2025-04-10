@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar";
 import Register from "./components/register";
 import Login from "./components/Login";
 import Account from "./components/Account"
+import Register from "./components/Register";
 
 
 function App() {
