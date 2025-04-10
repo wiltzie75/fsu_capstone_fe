@@ -48,11 +48,23 @@ export const createAccount = async (data) => {
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(data)
     })
-    console.log("good")
-    const result = await response
-    console.log("createAccount result => ", result)
   } catch (error) {
     console.log(error)
+  }
+}
+
+//==================login=attempt==========================
+export const userLogin = async (data) => {
+  try {
+    const response = await fetch(`${API_URL}/auth/login`, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
+    })
+    const result = await response.json()
+    return result.token
+  } catch (error) {
+    
   }
 }
 
