@@ -40,9 +40,10 @@ export const fetchFacultyById = async (id) => {
   }
 };
 
-export async function fetchAccount(token) {
+export async function fetchAccount(token, id) {
+  console.log(token, id);
   try {
-      const response = await fetch(`${API_URL}/users/`, {
+      const response = await fetch(`${API_URL}/users/${id}`, {
       headers: {
           "Content-Type": "application/json",
           "Authorization": `Bearer ${token}`},

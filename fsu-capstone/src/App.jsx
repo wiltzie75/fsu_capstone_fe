@@ -10,9 +10,7 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Register from "./components/register";
 import Login from "./components/Login";
-import Account from "./components/Account"
-import Register from "./components/Register";
-
+import Account from "./components/Account";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -27,7 +25,7 @@ function App() {
     <Navbar isLoggedIn={isLoggedIn}/>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register/>} />
+        <Route path="/register" element={<Register token={token} setToken={setToken} />} />
         {/* <Route path="/departments" element={<Departments />} /> */}
         {/* <Route path="/faculty" element={<Faculty />} /> */}
         {/* <Route path="/department/:id" element={<DepartmentDetailPage />} /> */}

@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { fetchAccount } from "../API";
+import { fetchAccount } from "../api";
 
 const Account = ({ token }) => {
     const {id} = useParams();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [account, setAccount] = useState(null);
 
     useEffect(() => {
