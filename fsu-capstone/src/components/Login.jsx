@@ -11,7 +11,7 @@ const Login = ({ token, setToken }) => {
   async function handleClick(e){
     e.preventDefault();
     try {
-      const response = await fetch(`${API}login`, {
+      const response = await fetch(`${API}auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
