@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { createAccount } from "../api";
+
 
 const Register = ({ setToken }) => {
     const [firstname, setFirstname] = useState("")
@@ -6,28 +8,26 @@ const Register = ({ setToken }) => {
     const [password, setPassword] = useState("")
     const [email, setEmail] = useState("")
 
-    async function handleSubmit(event) {
-        event.preventDefault();
+    // value testing
+    useEffect(() => {
+        console.log({firstname: firstname,
+                    lastname: lastname,
+                    email: email,
+                    password: password
+        })
+    },[firstname])
 
-        try {
-            const response = await fetch("", {
-                method: "POST",
-                body: JSON.stringify({firstname, lastname, email, password}),
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            })
-            const result = await response.json()
-            setToken(result.token)
-            
-            setFirstname("")
-            setLastname("")
-            setEmail("")
-            setPassword("")
 
-        } catch (error) {
-            console(error)
+    async function submitHandle(e) {
+        e.preventDefault()
+        console.log("submitted")
+        const data = {
+            firstName: firstname,
+            lastName: lastname,
+            email: email,
+            password: password
         }
+        createAccount(data)
     }
 
     return ( 
@@ -36,27 +36,27 @@ const Register = ({ setToken }) => {
             <div className="register-text">Register</div>
             <div className="underline"></div>
             </div>
-            <div className="inputs">
+            <form className="inputs">
                 <div className="input">
                     <img src="/assets/person.png" alt="Name Icon" />
-                    <input type="text" style={{ margin: '0 10px' }}placeholder="First Name"/>
+                    <input type="text" style={{ margin: '0 10px' }}placeholder="First Name" onChange={ (e)=> setFirstname(e.target.value)}/>
                 </div>
                 <div className="input">
                     <img src="/assets/person.png" alt="Name Icon" />
-                    <input type="text" style={{ margin: '0 10px' }}placeholder="Last Name"/>
+                    <input type="text" style={{ margin: '0 10px' }}placeholder="Last Name" onChange={ (e)=> setLastname(e.target.value)}/>
                 </div>
                 <div className="input">
                     <img src="/assets/email2.png" alt="Email Icon" />
-                    <input type="email" style={{ margin: '0 10px' }}placeholder="Email"/>
+                    <input type="email" style={{ margin: '0 10px' }}placeholder="Email" onChange={ (e)=> setEmail(e.target.value)}/>
                 </div>
                 <div className="input">
                     <img src="/assets/password.png" alt="Password Icon" />
-                    <input type="password" style={{ margin: '0 15px' }}placeholder="Password"/>
+                    <input type="password" style={{ margin: '0 15px' }}placeholder="Password" onChange={ (e)=> setPassword(e.target.value)}/>
                 </div>
-            </div>
             <div className="submit-container">
-                <div className="submit">Register</div>
+                <button className="submit" onClick={submitHandle}>Register</button>
             </div>
+            </form>
         </div>
      );
 }

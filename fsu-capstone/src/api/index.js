@@ -39,3 +39,18 @@ export const fetchFacultyById = async (id) => {
     console.error("Error fetching faculty", error);
   }
 };
+
+//===================register function======================
+export const createAccount = async (data) => {
+  try {
+    const response = await fetch(`${API_URL}/user`, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
+    })
+    console.log("createAccount response => ", response)
+    const result = response.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
