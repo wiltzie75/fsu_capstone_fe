@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { userLogin } from "../api";
 
-const Login = ({ token, setToken }) => {
+const Login = ({ token, setToken, handleLoginLogout }) => {
   const navigate = useNavigate();
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
@@ -15,6 +15,7 @@ const Login = ({ token, setToken }) => {
       password: inputPassword
     });
     localStorage.setItem("token", token);
+    handleLoginLogout(true)
     console.log("token from login", localStorage.getItem("token"));
     navigate("/user/:id");
   }
