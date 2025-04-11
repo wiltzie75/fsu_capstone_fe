@@ -29,7 +29,8 @@ const FacultyList = () => {
   if (!facultyList.length) return <p className="p-4">No faculty found.</p>;
 
   return (
-    <div className="facultyMainContainer">
+    <>
+    <div className="facultyMain">
       {facultyList.map((faculty) => (
         <div className="facultyWrapper" key={faculty.id}>
           <div className="facultyImgWrapper">
@@ -45,6 +46,7 @@ const FacultyList = () => {
         </div>
       ))}
     </div>
+    </>
   );
 };
 

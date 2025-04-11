@@ -270,12 +270,14 @@ button:focus-visible {
   text-align: center;
 }
 
-.facultyMainContainer {
+.facultyMain {
   margin: 60px;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  overflow-y: auto;
   max-height: 80vh;
+  padding-right: 10px; /* avoid content being hidden under scrollbar */
+  scrollbar-gutter: stable;
 }
 
 .facultyWrapper {
