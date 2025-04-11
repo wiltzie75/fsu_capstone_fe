@@ -50,7 +50,7 @@ const Login = ({ token, setToken }) => {
             value={inputEmail}
             style={{ margin: "0 10px" }}
             placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setInputEmail(e.target.value)}
           />
         </div>
         <div className="input">
@@ -60,7 +60,7 @@ const Login = ({ token, setToken }) => {
             value={inputPassword}
             style={{ margin: "0 15px" }}
             placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => setInputPassword(e.target.value)}
           />
         </div>
         <div className="submit-container">
