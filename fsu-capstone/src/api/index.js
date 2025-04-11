@@ -64,13 +64,13 @@ export const userLogin = async (data) => {
     const result = await response.json()
     return result.token
   } catch (error) {
-    
+    console.log(error)
   }
 }
 
 export async function fetchAccount(token) {
   try {
-      const response = await fetch(`${API_URL}/users/${id}`, {
+      const response = await fetch(`${API_URL}/user/${id}`, {
       headers: {
           "Content-Type": "application/json",
           "Authorization": `Bearer ${token}`},
