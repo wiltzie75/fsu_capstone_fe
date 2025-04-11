@@ -12,6 +12,7 @@ const FacultyList = () => {
         const response = await fetch("http://localhost:3000/api/faculty");
         if (!response.ok) throw new Error("Failed to fetch faculty.");
         const data = await response.json();
+        
         setFacultyList(data);
       } catch (err) {
         setError("Could not load faculty.");
