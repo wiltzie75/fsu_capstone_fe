@@ -15,6 +15,7 @@ const Login = ({ token, setToken }) => {
       password: inputPassword
     })
     localStorage.setItem("token", token)
+    console.log("token from login", localStorage.getItem("token"))
   }
 
   return (
