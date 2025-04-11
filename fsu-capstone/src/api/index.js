@@ -13,7 +13,7 @@ export const fetchDepartments = async () => {
 export const fetchDepartmentById = async (id) => {
   try {
     const response = await fetch(`${API_URL}/departments/${id}`);
-    const result = response.json();
+    const result = await response.json();
     return result;
   } catch (error) {
     console.error("Error fetching department", error);

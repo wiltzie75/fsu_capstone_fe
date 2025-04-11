@@ -5,7 +5,7 @@ import { fetchDepartmentById } from "../api";
 const DepartmentDetailPage = () => {
   const { id } = useParams();
   const [department, setDepartment] = useState(null);
-
+  console.log(department)
   useEffect(() => {
     const getDepartment = async () => {
       const data = await fetchDepartmentById(id);
@@ -22,11 +22,11 @@ const DepartmentDetailPage = () => {
       <p>{department.description}</p>
       <h2>Faculty</h2>
       <ul>
-        {department.faculty.map((professor) => (
+        {department.faculty?.map((professor) => (
           <li key={professor.id}>
-            <a href={`/faculty/${professor.id}`}>{professor.name}</a>
+            <a href={`/faculty/${professor.id}`}>{professor.name}</a> 
           </li>
-        ))}
+         )) || <li>No faculty listed</li>}
       </ul>
     </div>
   );
