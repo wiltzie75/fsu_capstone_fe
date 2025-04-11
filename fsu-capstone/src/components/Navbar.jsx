@@ -41,7 +41,7 @@ const Navbar = ({ isLoggedIn, handleLoginLogout }) => {
               <ul className="dropdown-menu">
                 {departments.map((department) => (
                   <li key={department.id}>
-                    <Link className="dropdownLink" to={`/departments/${department.id}`}>{department.name}</Link>
+                    <Link className="dropdownLink" to={`/department/${department.id}`}>{department.name}</Link>
                   </li>
                 ))}
               </ul>
