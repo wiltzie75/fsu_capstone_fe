@@ -32,7 +32,7 @@ function App() {
         {/* <Route path="/faculty/:id" element={<FacultyDetailPage />} /> */}
         {/* <Route path="/admin" element={<AdminPage />} /> */}
         <Route path="/login" element={<Login token={token} setToken={setToken}/>} />
-        <Route path="/user/:id" element={<Account token={token}/>} />
+        <Route path="/user/:id" element={<Account token={token} isLoggedIn={setIsLoggedIn}/>} />
       </Routes>
     </>
   );
