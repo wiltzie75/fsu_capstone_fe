@@ -269,3 +269,46 @@ button:focus-visible {
   font-size: 50px;
   text-align: center;
 }
+
+.facultyMainContainer {
+  margin: 60px;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  max-height: 80vh;
+}
+
+.facultyWrapper {
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 20px solid rgba(0, 0, 0, 0.256);
+  background-color: rgb(35, 35, 35);
+  border-radius: 15px;
+}
+
+.facultyImgWrapper {
+  border-radius: 100px;
+  width: 300px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.facultyImgWrapper img {
+
+  height: 250px;
+}
+
+.facultyInfoWrapper {
+  width: 1400px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: space-around;
+}

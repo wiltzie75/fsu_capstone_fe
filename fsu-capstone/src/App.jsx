@@ -3,7 +3,7 @@ import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 // import Departments from "./components/Departments";
-// import Faculty from "./components/Faculty";
+import FacultyList from "./components/FacultyList";
 // import DepartmentDetailPage from "./components/DepartmentDetailPage";
 // import FacultyDetailPage from "./components/FacultyDetailPage";
 // import AdminPage from "./components/AdminPage";
@@ -27,7 +27,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register token={token} setToken={setToken} />} />
         {/* <Route path="/departments" element={<Departments />} /> */}
-        {/* <Route path="/faculty" element={<Faculty />} /> */}
+        <Route path="/faculty" element={<FacultyList />} />
         {/* <Route path="/department/:id" element={<DepartmentDetailPage />} /> */}
         {/* <Route path="/faculty/:id" element={<FacultyDetailPage />} /> */}
         {/* <Route path="/admin" element={<AdminPage />} /> */}
