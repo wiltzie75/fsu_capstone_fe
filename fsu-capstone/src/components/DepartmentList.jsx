@@ -1,7 +1,7 @@
 // components/DepartmentList.jsx
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import API from "../api/api";
+import API from "../api";
 
 const DepartmentList = () => {
   const [departments, setDepartments] = useState([]);
