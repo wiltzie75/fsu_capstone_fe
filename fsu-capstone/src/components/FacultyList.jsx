@@ -31,7 +31,7 @@ const FacultyList = () => {
   return (
     <div className="facultyMainContainer">
       {facultyList.map((faculty) => (
-        <div className="facultyWrapper">
+        <div className="facultyWrapper" key={faculty.id}>
           <div className="facultyImgWrapper">
             <img src={faculty.image} alt="it no work" />
           </div>
