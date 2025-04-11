@@ -6,7 +6,7 @@ const DepartmentDetailPage = () => {
   const { id } = useParams();
   const [department, setDepartment] = useState(null);
 
-  console.log("Faculty:", department.faculty);
+// console.log("Faculty:", department.faculty);  
 
   useEffect(() => {
     const getDepartment = async () => {
