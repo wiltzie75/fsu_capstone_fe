@@ -13,9 +13,10 @@ const Login = ({ token, setToken }) => {
     const token = await userLogin({
       email: inputEmail,
       password: inputPassword
-    })
-    localStorage.setItem("token", token)
-    console.log("token from login", localStorage.getItem("token"))
+    });
+    localStorage.setItem("token", token);
+    console.log("token from login", localStorage.getItem("token"));
+    navigate("/user/:id");
   }
 
   return (
