@@ -13,7 +13,7 @@ export const fetchDepartments = async () => {
 export const fetchDepartmentById = async (id) => {
   try {
     const response = await fetch(`${API_URL}/departments/${id}`);
-    const result = response.json();
+    const result = await response.json();
     return result;
   } catch (error) {
     console.error("Error fetching department", error);
@@ -68,7 +68,7 @@ export const userLogin = async (data) => {
   }
 }
 
-export async function fetchAccount(token) {
+export async function fetchAccount(token, id) {
   try {
       const response = await fetch(`${API_URL}/user/${id}`, {
       headers: {
