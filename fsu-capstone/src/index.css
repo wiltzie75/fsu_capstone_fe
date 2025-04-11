@@ -108,7 +108,9 @@ button:focus-visible {
 }
 
 .dropdown-menu {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
   position: absolute;
   background-color: rgb(48, 47, 47);
   border: 1px solid #2c2b2b;
@@ -120,7 +122,14 @@ button:focus-visible {
 
 .dropdown-menu li {
   padding: 5px 15px;
+  display: block;
+  display: flex;
 }
+
+.dropdownLink {
+  text-align: left;
+}
+
 
 .dropdown-menu li:hover {
   background-color: #224b2b;
