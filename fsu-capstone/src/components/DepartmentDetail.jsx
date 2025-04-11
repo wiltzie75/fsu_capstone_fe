@@ -5,6 +5,9 @@ import { fetchDepartmentById } from "../api";
 const DepartmentDetailPage = () => {
   const { id } = useParams();
   const [department, setDepartment] = useState(null);
+
+  console.log("Faculty:", department.faculty);
+
   useEffect(() => {
     const getDepartment = async () => {
       const data = await fetchDepartmentById(id);

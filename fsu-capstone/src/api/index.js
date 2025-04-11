@@ -68,7 +68,7 @@ export const userLogin = async (data) => {
   }
 }
 
-export async function fetchAccount(token) {
+export async function fetchAccount(token, id) {
   try {
       const response = await fetch(`${API_URL}/user/${id}`, {
       headers: {
