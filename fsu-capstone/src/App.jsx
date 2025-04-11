@@ -16,9 +16,9 @@ function App() {
   const [token, setToken] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // const handleLoginLogout = (value) => {
-  //   setIsLoggedIn(value);
-  // };
+  const handleLoginLogout = (value) => {
+    setIsLoggedIn(value);
+  };
 
   return (
     <>
@@ -31,7 +31,7 @@ function App() {
         {/* <Route path="/department/:id" element={<DepartmentDetailPage />} /> */}
         {/* <Route path="/faculty/:id" element={<FacultyDetailPage />} /> */}
         {/* <Route path="/admin" element={<AdminPage />} /> */}
-        <Route path="/login" element={<Login token={token} setToken={setToken}/>} />
+        <Route path="/login" element={<Login token={token} setToken={setToken} handleLoginLogout={handleLoginLogout} />} />
         <Route path="/user/:id" element={<Account token={token} isLoggedIn={setIsLoggedIn}/>} />
       </Routes>
     </>

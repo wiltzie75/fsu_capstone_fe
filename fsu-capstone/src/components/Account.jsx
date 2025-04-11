@@ -10,11 +10,11 @@ const Account = ({ token }) => {
     useEffect(() => {
         async function getAccountDetails() {
             const token = localStorage.getItem("token")
-            const APIResponse = await fetchAccount(token);
+            const APIResponse = await fetchAccount(id, token);
             setAccount(APIResponse);
         }
         getAccountDetails();
-    })
+    }, [id]);
 
     return ( 
         <>
