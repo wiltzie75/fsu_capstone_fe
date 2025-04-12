@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { createAccount } from "../api";
+import { useNavigate } from "react-router-dom";
 
 
 const Register = ({ setToken }) => {
@@ -7,27 +8,43 @@ const Register = ({ setToken }) => {
     const [lastname, setLastname] = useState("")
     const [password, setPassword] = useState("")
     const [email, setEmail] = useState("")
+    const [error, setError] = useState(null)
+    const navigate = useNavigate()
 
     // value testing
-    useEffect(() => {
-        console.log({firstname: firstname,
-                    lastname: lastname,
-                    email: email,
-                    password: password
-        })
-    },[firstname])
+    // useEffect(() => {
+    //     console.log({firstname: firstname,
+    //                 lastname: lastname,
+    //                 email: email,
+    //                 password: password
+    //     })
+    // },[firstname])
 
 
     async function submitHandle(e) {
         e.preventDefault()
-        console.log("submitted")
+        console.log("clicked")
         const data = {
             firstName: firstname,
             lastName: lastname,
             email: email,
             password: password
         }
-        createAccount(data)
+        const result = await createAccount(data)
+
+        if(result.error) return setError(result.error)
+
+        if(!result.error) {
+            setError(null)
+        }
+
+        localStorage.setItem("token", result.token)
+        console.log("reg set token => ",localStorage.getItem("token"))
+        navigate("/")
+        window.location.reload()
+        console.log("register result", result)
+        
+
     }
 
     return ( 
@@ -53,6 +70,7 @@ const Register = ({ setToken }) => {
                     <img src="/assets/password.png" alt="Password Icon" />
                     <input type="password" style={{ margin: '0 15px' }}placeholder="Password" onChange={ (e)=> setPassword(e.target.value)}/>
                 </div>
+                <div className="errorMessage">{error}</div>
             <div className="submit-container">
                 <button className="submit" onClick={submitHandle}>Register</button>
             </div>

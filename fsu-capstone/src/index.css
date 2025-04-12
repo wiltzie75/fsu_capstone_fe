@@ -384,3 +384,9 @@ button:focus-visible {
 .passwordfont {
   font-size: 10px;
 }
+
+
+.errorMessage {
+  text-align: center;
+  color: red;
+}

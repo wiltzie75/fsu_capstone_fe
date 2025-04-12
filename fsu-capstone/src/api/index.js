@@ -48,6 +48,8 @@ export const createAccount = async (data) => {
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(data)
     })
+    const result = await response.json()
+    return result
   } catch (error) {
     console.log(error)
   }
@@ -62,7 +64,7 @@ export const userLogin = async (data) => {
       body: JSON.stringify(data)
     })
     const result = await response.json()
-    return result.token
+    return result
   } catch (error) {
     console.log(error)
   }

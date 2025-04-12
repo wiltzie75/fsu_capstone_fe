@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { userLogin } from "../api";
 
-const Login = ({ token, setToken, handleLoginLogout }) => {
+const Login = () => {
   const navigate = useNavigate();
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
@@ -10,34 +10,30 @@ const Login = ({ token, setToken, handleLoginLogout }) => {
 
   async function handleClick(e) {
     e.preventDefault();
-    const token = await userLogin({
-      email: inputEmail,
-      password: inputPassword
-    });
-    localStorage.setItem("token", token);
-    handleLoginLogout(true)
-    console.log("token from login", localStorage.getItem("token"));
-    navigate("/user/:id");
+    if(!inputEmail || !inputPassword ) {
+      setError("Both fields are required")
+    } 
+    try {
+      const result = await userLogin({
+        email: inputEmail,
+        password: inputPassword
+      });
+      if(result.error) return setError(result.error)
+
+      if(!result.error) {
+        setError(null)
+      }
+      console.log("result from frontend =>", result)
+      localStorage.setItem("token", result.token);
+      console.log("result from login", localStorage.getItem("token"));
+      navigate("/")
+      window.location.reload()
+    } catch (error) {
+      setError(error)
+    }
   }
 
   return (
-    // <form id="login-form" onSubmit={handleClick}>
-    //   <input
-    //     type="text"
-    //     value={inputEmail}
-    //     placeholder="email"
-    //     onChange={(event) => setInputEmail(event.target.value)}
-    //   />
-    //   <input
-    //     type="password"
-    //     value={inputPassword}
-    //     placeholder="password"
-    //     onChange={(event) => setInputPassword(event.target.value)}
-    //     pattern="(?=.*[a-z])(?=.*[A-Z]).{6,}"
-    //     title="Must contain at least one uppercase and lowercase letter, and at least 6 or more characters"
-    //   />
-    //   <button type="submit">Log In</button>
-    // </form>
     <div className="login-container">
       <div className="login-header">
         <div className="login-text">Login</div>
@@ -64,6 +60,7 @@ const Login = ({ token, setToken, handleLoginLogout }) => {
             onChange={(e) => setInputPassword(e.target.value)}
           />
         </div>
+        <div className="errorMessage">{error}</div>
         <div className="submit-container">
           <button className="submit" onClick={handleClick}>
             Login
