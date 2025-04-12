@@ -28,6 +28,14 @@ const Register = ({ setToken }) => {
             password: password
         }
         createAccount(data)
+        resetForm();
+    }
+
+    function resetForm() {
+        setFirstname("");
+        setLastname("");
+        setEmail("");
+        setPassword("");
     }
 
     return ( 
@@ -39,19 +47,19 @@ const Register = ({ setToken }) => {
             <form className="inputs">
                 <div className="input">
                     <img src="/assets/person.png" alt="Name Icon" />
-                    <input type="text" style={{ margin: '0 10px' }}placeholder="First Name" onChange={ (e)=> setFirstname(e.target.value)}/>
+                    <input type="text" style={{ margin: '0 10px' }}placeholder="First Name" value={firstname}onChange={ (e)=> setFirstname(e.target.value)}/>
                 </div>
                 <div className="input">
                     <img src="/assets/person.png" alt="Name Icon" />
-                    <input type="text" style={{ margin: '0 10px' }}placeholder="Last Name" onChange={ (e)=> setLastname(e.target.value)}/>
+                    <input type="text" style={{ margin: '0 10px' }}placeholder="Last Name" value={lastname}onChange={ (e)=> setLastname(e.target.value)}/>
                 </div>
                 <div className="input">
                     <img src="/assets/email2.png" alt="Email Icon" />
-                    <input type="email" style={{ margin: '0 10px' }}placeholder="Email" onChange={ (e)=> setEmail(e.target.value)}/>
+                    <input type="email" style={{ margin: '0 10px' }}placeholder="Email" value={email} onChange={ (e)=> setEmail(e.target.value)}/>
                 </div>
                 <div className="input">
                     <img src="/assets/password.png" alt="Password Icon" />
-                    <input type="password" style={{ margin: '0 15px' }}placeholder="Password" onChange={ (e)=> setPassword(e.target.value)}/>
+                    <input type="password" style={{ margin: '0 15px' }}placeholder="Password" value={password} onChange={ (e)=> setPassword(e.target.value)}/>
                 </div>
             <div className="submit-container">
                 <button className="submit" onClick={submitHandle}>Register</button>
