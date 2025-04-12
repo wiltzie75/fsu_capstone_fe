@@ -19,6 +19,7 @@ const DepartmentDetailPage = () => {
     <div>
       <h1>{department.name}</h1>
       <p>{department.description}</p>
+      <img src={department.image} alt="department image" />
       <h2>Faculty</h2>
       <ul>
         {department.faculty?.map((professor) => (
