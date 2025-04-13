@@ -134,3 +134,17 @@ export const createDepartment = async (data) => {
     console.log(error)
   }
 }
+
+export const createFaculty = async (data) => {
+  try {
+    const response = await fetch(`${API_URL}/faculty`, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
+    })
+    const result = await response.json()
+    return result
+  } catch (error) {
+    console.log(error)
+  }
+}
