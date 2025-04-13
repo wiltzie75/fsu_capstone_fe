@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { removeFaculty } from "../api";
 
 const FacultyDetail = () => {
   const { id } = useParams();
   const [faculty, setFaculty] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getFaculty = async () => {
@@ -29,6 +31,21 @@ const FacultyDetail = () => {
   if (!faculty) return <p className="p-4">No faculty found.</p>;
 
   const { name, bio, email, profileImage, department } = faculty;
+
+  const handleDelete = async () => {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this faculty member?"
+    );
+    if (!confirmed) return;
+
+    const result = await removeFaculty(faculty.id);
+
+    if (result) {
+      navigate("/");
+    } else {
+      console.error("Failed to delete faculty");
+    }
+  };
 
   return (
     <div className="p-6 max-w-3xl mx-auto">
@@ -54,6 +71,15 @@ const FacultyDetail = () => {
                 {department.name}
               </Link>
             </p>
+          )}
+          {!localStorage.getItem("token") ? (
+            <p>You must be an admin to make changes</p>
+          ) : (
+            <div className="adminOptions">
+              <button style={{ color: "red" }} onClick={handleDelete}>
+                Delete
+              </button>
+            </div>
           )}
         </div>
       </div>

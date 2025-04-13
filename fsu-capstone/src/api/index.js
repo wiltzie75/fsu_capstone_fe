@@ -92,12 +92,30 @@ export async function removeDepartment(id) {
         "Content-Type": "application/json",
       },
     });
-    const result = await response.json();
     if (!response.ok) {
       throw new Error(result.message || "Failed to remove department");
     }
-    return result;
+    return true;
   } catch (error) {
     console.error("Error removing the department", error);
   }
+  return false;
+}
+
+export async function removeFaculty(id) {
+  try {
+    const response = await fetch(`${API_URL}/faculty/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!response.ok) {
+      throw new Error(result.message || "Failed to remove faculty");
+    }
+    return true;
+  } catch (error) {
+    console.error("Error removing the faculty", error);
+  }
+  return false;
 }
