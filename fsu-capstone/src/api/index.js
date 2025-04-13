@@ -121,8 +121,6 @@ export async function removeFaculty(id) {
   return false;
 }
 
-}
-
 export const createDepartment = async (data) => {
   try {
     const response = await fetch(`${API_URL}/departments`, {

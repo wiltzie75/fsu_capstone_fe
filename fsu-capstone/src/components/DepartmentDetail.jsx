@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { fetchDepartmentById, removeDepartment } from "../api";
-import { useParams } from "react-router-dom";
 
 
 const DepartmentDetailPage = ({ token }) => {
@@ -64,7 +63,7 @@ const DepartmentDetailPage = ({ token }) => {
         <div className="adminOptions">
           <button style={{ color: "red" }} onClick={handleDelete}>Delete</button>
         </div>
-      )} */}
+      )}
     </div>
   );
 };

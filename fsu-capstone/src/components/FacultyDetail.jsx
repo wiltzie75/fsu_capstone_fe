@@ -87,6 +87,7 @@ const FacultyDetail = () => {
               {departmentName || "Loading department..."}
             </Link>
           </p>
+           )}
           {department && (
             <p className="mt-2">
               Department:{" "}
@@ -96,7 +97,7 @@ const FacultyDetail = () => {
               >
                 {department.name}
               </Link>
-            </p>
+          </p>
           )}
           {!localStorage.getItem("token") ? (
             <p>You must be an admin to make changes</p>
