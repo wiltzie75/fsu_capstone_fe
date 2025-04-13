@@ -99,6 +99,7 @@ export async function removeDepartment(id) {
   } catch (error) {
     console.error("Error removing the department", error);
   }
+
   return false;
 }
 
@@ -119,3 +120,20 @@ export async function removeFaculty(id) {
   }
   return false;
 }
+
+}
+
+export const createDepartment = async (data) => {
+  try {
+    const response = await fetch(`${API_URL}/departments`, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
+    })
+    const result = await response.json()
+    return result
+  } catch (error) {
+    console.log(error)
+  }
+}
+

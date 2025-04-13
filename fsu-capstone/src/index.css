@@ -70,6 +70,7 @@ button:focus-visible {
   background-color: rgb(61, 61, 61);
   padding: 15px;
   float: left;
+  margin-bottom: 50px;
 }
 
 .navbar li {
@@ -390,3 +391,91 @@ button:focus-visible {
   text-align: center;
   color: red;
 }
+
+.departmentWrapper {
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 50px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 20px solid rgba(0, 0, 0, 0.256);
+  background-color: rgb(35, 35, 35);
+  border-radius: 15px;
+}
+
+.departmentImgWrapper {
+  border-radius: 100px;
+  width: 300px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.departmentImgWrapper img {
+  height: 250px;
+}
+
+.departmentInfoWrapper {
+  width: 1400px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.facultyDetailWrapper {
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* padding: 50px;
+  margin-top: 20px; */
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 20px solid rgba(0, 0, 0, 0.256);
+  background-color: rgb(35, 35, 35);
+  border-radius: 15px;
+  margin-top: 80px; /* adjust based on navbar height */
+  padding: 20px;
+  
+}
+
+.facultyImageWrapper {
+  border-radius: 100px;
+  width: 300px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.facultyImageWrapper img {
+  height: 250px;
+}
+
+.facultyInfoWrapper {
+  width: 1400px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: left;
+  justify-content: center;
+  /* margin: 0px 300px 0px 0px; */
+  padding: 0px 0px 15px 0px;
+  width: fit-content;
+  gap: 10px;
+}
+
