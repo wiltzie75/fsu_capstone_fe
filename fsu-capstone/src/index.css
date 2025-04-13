@@ -1,7 +1,7 @@
 body {
   margin: 0;
   height: 100vh;
-  background: linear-gradient(green, white);
+  background: linear-gradient(rgb(1, 65, 1), rgb(5, 184, 49));
 }
 
 :root {
@@ -19,11 +19,11 @@ body {
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #ffffff;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #babdf0;
 }
 
 h1 {
