@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchAccount, createDepartment } from "../api";
 
+const API_URL="http://localhost:3000/api";
 const Account = ({ token }) => {
   const navigate = useNavigate();
   const [account, setAccount] = useState({});
@@ -9,53 +10,62 @@ const Account = ({ token }) => {
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [email, setEmail] = useState("");
-  const [faculty, setFaculty] = useState([]);
+  const [facultyList, setFacultyList] = useState([]);
+  const [selectedFaculty, setSelectedFaculty] = useState([]);
   const [error, setError] = useState(null);
+
   useEffect(() => {
     async function getAccountDetails() {
       const token = localStorage.getItem("token");
       const APIResponse = await fetchAccount(token);
       setAccount(APIResponse.user);
     }
+
+    async function getFacultyList() {
+      try {
+        const response = await fetch(`${API_URL}/faculty`)
+        const result = await response.json();
+        setFacultyList(Array.isArray(result) ? result : []);
+      } catch (error) {
+        console.log("Error fetching faculty:", error);
+      }
+    }
     getAccountDetails();
+    getFacultyList();
   }, []);
   
-  async function submitHandle(e) {
-          e.preventDefault()
-          console.log("clicked")
-          const data = {
-              name: name,
-              description: description,
-              image: imageUrl,
-              email: email,
-              faculty: faculty
-          }
+async function resetForm() {
+  setName("");
+  setDescription("");
+  setImageUrl("");
+  setEmail("");
+  setSelectedFaculty([]);
+  if(error) {
+      setError(null)
+  }
+  navigate("/")
+}
 
-          createDepartment(data)
-          resetForm();
-      }
+async function submitHandle(e) {
+  e.preventDefault()
+  console.log("clicked")
+  const data = {
+      name: name,
+      description: description,
+      image: imageUrl,
+      email: email,
+      facultyIds: selectedFaculty.map((id) => Number(id)),
+  };
+  const result = await createDepartment(data);
 
-      async function resetForm() {
-              setName("");
-              setDescription("");
-              setImageUrl("");
-              setEmail("");
-              setFaculty("");
-      
-              const result = await createDepartment(data)
-      
-              if(result.error) return setError(result.error)
-      
-              if(!result.error) {
-                  setError(null)
-              }
-      
-              localStorage.setItem("token", result.token)
-              console.log("reg set token => ",localStorage.getItem("token"))
-              navigate("/")
-              window.location.reload()
-              console.log("register result", result)
-          }
+  if(result.error) {
+    setError(result.error);
+  } else {
+    setError(null);
+    localStorage.setItem("token", result.token);
+    resetForm();
+  }
+}
 
   //     =============example of syntax============
 
@@ -121,14 +131,21 @@ const Account = ({ token }) => {
                   setEmail(e.target.value)}}
                 />
         <label>Faculty: </label>
-                <input
-                type="text"
-                id="faculty"
-                value={faculty}
-                placeholder="faculty"
-                onChange={(e) => {
-                  setFaculty(e.target.value)}}
-                />
+                <select
+                  multiple
+                  value={selectedFaculty}
+                  onChange={(e) => 
+                    setSelectedFaculty(
+                      Array.from(e.target.selectedOptions, (option) => option.value)
+                    )}
+                >
+                  <option value="">Select a faculty member</option>
+                  {facultyList.map((member) => (
+                    <option key={member.id} value={member.id}>
+                      {member.name}
+                    </option>
+                  ))}
+                </select>
         <button className="button" type="submit" onClick={submitHandle}>Submit</button>
     </form>
     </div>

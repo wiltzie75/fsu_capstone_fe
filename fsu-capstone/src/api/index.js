@@ -134,4 +134,3 @@ export const createDepartment = async (data) => {
     console.log(error)
   }
 }
-
