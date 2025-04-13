@@ -53,17 +53,25 @@ const DepartmentDetailPage = ({ token }) => {
             </li>
           )) || <li>No faculty listed</li>}
         </ul>
+        {!localStorage.getItem("token") ? (
+
+<p>You must be an admin to make changes</p>
+) : (
+<div className="adminOptions">
+  <button style={{ color: "red" }} onClick={handleDelete}>Delete</button>
+</div>
+)}
         </div>
       </div>
 
-      {!localStorage.getItem("token") ? (
+      {/* {!localStorage.getItem("token") ? (
 
         <p>You must be an admin to make changes</p>
       ) : (
         <div className="adminOptions">
           <button style={{ color: "red" }} onClick={handleDelete}>Delete</button>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

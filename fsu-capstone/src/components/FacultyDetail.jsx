@@ -88,17 +88,6 @@ const FacultyDetail = () => {
             </Link>
           </p>
            )}
-          {department && (
-            <p className="mt-2">
-              Department:{" "}
-              <Link
-                to={`/departments/${department.id}`}
-                className="text-indigo-600 underline"
-              >
-                {department.name}
-              </Link>
-          </p>
-          )}
           {!localStorage.getItem("token") ? (
             <p>You must be an admin to make changes</p>
           ) : (
