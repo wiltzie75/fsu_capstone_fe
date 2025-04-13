@@ -131,7 +131,7 @@ const Account = ({ token }) => {
     <div>
       {account && (
         <div>
-          <h2>Welcome! {account.firstName} {account.lastName}</h2>
+          <h2 style={{ textAlign: "center" }}>Welcome {account.firstName} {account.lastName}</h2>
         </div>
       )}
 
