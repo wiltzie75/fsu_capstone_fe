@@ -84,3 +84,20 @@ export async function fetchAccount(token) {
   }
 }
 
+export async function removeDepartment(id) {
+  try {
+    const response = await fetch(`${API_URL}/departments/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const result = await response.json();
+    if (!response.ok) {
+      throw new Error(result.message || "Failed to remove department");
+    }
+    return result;
+  } catch (error) {
+    console.error("Error removing the department", error);
+  }
+}

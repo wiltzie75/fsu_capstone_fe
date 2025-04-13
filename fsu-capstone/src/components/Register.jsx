@@ -31,6 +31,7 @@ const Register = ({ setToken }) => {
             password: password
         }
 
+
         createAccount(data)
         resetForm();
     }
@@ -42,6 +43,7 @@ const Register = ({ setToken }) => {
         setPassword("");
 
         // const result = await createAccount(data)
+        const result = await createAccount(data)
 
         if(result.error) return setError(result.error)
 
@@ -54,7 +56,6 @@ const Register = ({ setToken }) => {
         navigate("/")
         window.location.reload()
         console.log("register result", result)
-        
     }
 
     return ( 

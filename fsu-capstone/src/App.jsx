@@ -5,10 +5,10 @@ import Home from "./components/Home";
 // import Departments from "./components/DepartmentList";
 import FacultyList from "./components/FacultyList";
 import DepartmentDetailPage from "./components/DepartmentDetail";
-// import FacultyDetailPage from "./components/FacultyDetailPage";
+import FacultyDetail from "./components/FacultyDetail";
 // import AdminPage from "./components/AdminPage";
 import Navbar from "./components/Navbar";
-import Register from "./components/Register";
+import Register from "./components/register";
 import Login from "./components/Login";
 import Account from "./components/Account"
 
@@ -24,7 +24,7 @@ function App() {
         {/* <Route path="/departments" element={<Departments />} /> */}
         <Route path="/faculty" element={<FacultyList />} />
         <Route path="/department/:id" element={<DepartmentDetailPage />} />
-        {/* <Route path="/faculty/:id" element={<FacultyDetailPage />} /> */}
+        <Route path="/faculty/:id" element={<FacultyDetail />} />
         {/* <Route path="/admin" element={<AdminPage />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/account" element={<Account />} />
