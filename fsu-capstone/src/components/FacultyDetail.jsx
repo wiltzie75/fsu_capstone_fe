@@ -1,5 +1,8 @@
+
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { removeFaculty } from "../api";
+
 
 const FacultyDetail = () => {
   const { id } = useParams();
@@ -8,6 +11,7 @@ const FacultyDetail = () => {
   const [departmentName, setDepartmentName] = useState("");
 
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getFaculty = async () => {
@@ -41,8 +45,24 @@ const FacultyDetail = () => {
   if (error) return <p className="errorMessage">{error}</p>;
   if (!faculty) return <p className="noFacultyMessage">No faculty found.</p>;
 
+
+  const handleDelete = async () => {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this faculty member?"
+    );
+    if (!confirmed) return;
+
+    const result = await removeFaculty(faculty.id);
+
+    if (result) {
+      navigate("/");
+    } else {
+      console.error("Failed to delete faculty");
+    }
+  };
+
   const { name, bio, email, image } = faculty;
-  
+
   return (
     <div>
       <div className="facultyDetailWrapper">
@@ -67,8 +87,27 @@ const FacultyDetail = () => {
               {departmentName || "Loading department..."}
             </Link>
           </p>
-        )}
-      </div>
+          {department && (
+            <p className="mt-2">
+              Department:{" "}
+              <Link
+                to={`/departments/${department.id}`}
+                className="text-indigo-600 underline"
+              >
+                {department.name}
+              </Link>
+            </p>
+          )}
+          {!localStorage.getItem("token") ? (
+            <p>You must be an admin to make changes</p>
+          ) : (
+            <div className="adminOptions">
+              <button style={{ color: "red" }} onClick={handleDelete}>
+                Delete
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
