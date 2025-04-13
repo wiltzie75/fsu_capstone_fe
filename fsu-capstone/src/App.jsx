@@ -27,7 +27,7 @@ function App() {
         {/* <Route path="/faculty/:id" element={<FacultyDetailPage />} /> */}
         {/* <Route path="/admin" element={<AdminPage />} /> */}
         <Route path="/login" element={<Login />} />
-        <Route path="/user/:id" element={<Account />} />
+        <Route path="/account" element={<Account />} />
       </Routes>
     </>
   );

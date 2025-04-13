@@ -70,15 +70,15 @@ export const userLogin = async (data) => {
   }
 }
 
-export async function fetchAccount(token, id) {
+export async function fetchAccount(token) {
   try {
-      const response = await fetch(`${API_URL}/user/${id}`, {
+      const response = await fetch(`${API_URL}/user`, {
       headers: {
           "Content-Type": "application/json",
           "Authorization": `Bearer ${token}`},
       });
-          const json = await response.json();
-          return json;
+          const result = await response.json();
+          return result;
   } catch (error) {
       console.error(error);
   }
