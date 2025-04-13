@@ -30,18 +30,18 @@ const Register = ({ setToken }) => {
             email: email,
             password: password
         }
-<<<<<<< HEAD
+
         createAccount(data)
         resetForm();
     }
 
-    function resetForm() {
+    async function resetForm() {
         setFirstname("");
         setLastname("");
         setEmail("");
         setPassword("");
-=======
-        const result = await createAccount(data)
+
+        // const result = await createAccount(data)
 
         if(result.error) return setError(result.error)
 
@@ -55,8 +55,6 @@ const Register = ({ setToken }) => {
         window.location.reload()
         console.log("register result", result)
         
-
->>>>>>> 6106562092897977fe335d9cfcfc28b097ec9d69
     }
 
     return ( 
