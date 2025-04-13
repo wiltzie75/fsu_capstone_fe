@@ -1,33 +1,40 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { fetchAccount } from "../api";
 
 const Account = ({ token }) => {
-    const {id} = useParams();
-    // const navigate = useNavigate();
-    const [account, setAccount] = useState(null);
-
+    const navigate = useNavigate();
+    const [account, setAccount] = useState({});
+    console.log("account =>", account)
     useEffect(() => {
         async function getAccountDetails() {
             const token = localStorage.getItem("token")
-            const APIResponse = await fetchAccount(id, token);
-            setAccount(APIResponse);
+            const APIResponse = await fetchAccount(token);
+            setAccount(APIResponse.user);
         }
         getAccountDetails();
-    }, [id]);
+    }, []);
+
+//     =============example of syntax============
+
+//     account: {
+//     id: 18, 
+//     firstName: "Josh",
+//     lastName: "Balls", 
+//     email: "balls@gmail.com", 
+//     password: "$2b$10$hzF5pvO0cQO2qQupHa/juuSaRCODnBgC5NROkFP/9xSRGVz2cbeza", 
+//     isAdmin: false
+// }
+
 
     return ( 
-        <>
-        {account && (
-            <div key={account.id} className="account-details">
-                <h2>Welcome {account.firstname}</h2>
-                <p>First name: {account.firstname}</p> 
-                <p>Last name: {account.lastname}</p>
-                <p>Email: {account.email}</p>
-                <p>Password:</p> <p className="passwordfont">...Don't worry I wont show your password :D</p>
+        <div>
+            {account &&
+            <div>
+                <h2>Welcome! {account.firstName}</h2>
             </div>
-        )}
-        </>
+}
+        </div>
      );
 }
 
