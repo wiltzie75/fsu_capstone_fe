@@ -42,7 +42,6 @@ const Register = ({ setToken }) => {
         setEmail("");
         setPassword("");
 
-        // const result = await createAccount(data)
         const result = await createAccount(data)
 
         if(result.error) return setError(result.error)
