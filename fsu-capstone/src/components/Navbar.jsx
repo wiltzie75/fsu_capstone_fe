@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, Navigate, NavLink } from 'react-router-dom';
 
 
-const Navbar = ({ isLoggedIn, handleLoginLogout }) => {
+const Navbar = () => {
   const [departments, setDepartments] = useState([]);
   const [dropdown, setDropdown] = useState(false);
 
@@ -16,6 +16,18 @@ const Navbar = ({ isLoggedIn, handleLoginLogout }) => {
       console.error("Couldn't fetch departments", error);
     });
   }, []);
+
+  function clickHandle() {
+    localStorage.removeItem("token")
+    console.log("localStorage =>", localStorage.getItem("token"))
+    window.location.reload()
+  }
+
+  useEffect(() => {
+    if(localStorage.getItem("token")){console.log(true)}
+    if(!localStorage.getItem("token")){console.log(false)}
+  },[localStorage.getItem("token")])
+
 
     return (
         <div className="navbar" role="banner">
@@ -54,7 +66,7 @@ const Navbar = ({ isLoggedIn, handleLoginLogout }) => {
         </ul>
 
         <div className="navbar-right">
-          {!isLoggedIn ? (
+          {!localStorage.getItem("token") ? (
             <li style={{ margin: '0 10px' }}>
               <Link to="/register">Register</Link>
             </li>
@@ -63,13 +75,13 @@ const Navbar = ({ isLoggedIn, handleLoginLogout }) => {
               <Link to="/account">Account</Link>
             </li>
           )}
-          {!isLoggedIn ? (
+          {!localStorage.getItem("token") ? (
             <li style={{ margin: '0 10px' }}>
               <Link to="/login">Login</Link>
             </li>
           ) : (
             <li style={{ margin: '0 10px' }}>
-              <Link to="/" onClick={() => handleLoginLogout(false)}>Logout</Link>
+              <Link to="/" onClick={() => clickHandle()}>Logout</Link>
             </li>
           )}
         </div>
